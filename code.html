@@ -1,0 +1,1359 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receitas Saudáveis para Quem Não Tem Tempo - Ebook Digital</title>
+    <meta name="description" content="Descubra mais de 10 receitas saudáveis prontas em menos de 20 minutos. Alimentação nutritiva para quem tem uma rotina corrida.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-green: #2E7D32;
+            --secondary-green: #4CAF50;
+            --accent-orange: #FF6B35;
+            --light-orange: #FF8A50;
+            --text-dark: #1a1a1a;
+            --text-gray: #666;
+            --bg-light: #f8fffe;
+            --white: #ffffff;
+            --shadow: 0 10px 40px rgba(0,0,0,0.1);
+            --shadow-hover: 0 20px 60px rgba(0,0,0,0.15);
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--primary-green);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-orange), var(--light-orange));
+            border-radius: 2px;
+        }
+
+        /* Header/Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            color: var(--white);
+            padding: 100px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-60px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            line-height: 1.5;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent-orange);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .ebook-mockup {
+            position: relative;
+            transform: perspective(1000px) rotateY(-15deg) rotateX(5deg);
+            transition: var(--transition);
+        }
+
+        .ebook-mockup:hover {
+            transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
+        }
+
+        .ebook-cover {
+            width: 320px;
+            height: 450px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-hover);
+            position: relative;
+            overflow: hidden;
+            background: var(--white);
+        }
+
+        .ebook-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+        }
+
+        .price-section {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .price-old {
+            font-size: 1.2rem;
+            text-decoration: line-through;
+            opacity: 0.7;
+            margin-bottom: 8px;
+        }
+
+        .price-current {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent-orange);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .price-installments {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 8px;
+        }
+
+        /* CTA Buttons */
+        .cta-button {
+            background: linear-gradient(45deg, var(--accent-orange), var(--light-orange));
+            color: var(--white);
+            padding: 18px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .cta-button i {
+            font-size: 1.2rem;
+        }
+
+        /* Fixed CTA */
+        .fixed-cta {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Benefits Section */
+        .benefits {
+            background: var(--bg-light);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(76, 175, 80, 0.1);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(45deg, var(--secondary-green), var(--primary-green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-green);
+            margin-bottom: 16px;
+        }
+
+        .benefit-card p {
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* What's Inside Section */
+        .whats-inside {
+            background: var(--white);
+        }
+
+        .content-preview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .content-list {
+            list-style: none;
+        }
+
+        .content-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 24px;
+            padding: 20px;
+            background: var(--bg-light);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .content-item:hover {
+            background: rgba(76, 175, 80, 0.05);
+            transform: translateX(8px);
+        }
+
+        .content-item i {
+            color: var(--accent-orange);
+            margin-right: 16px;
+            margin-top: 4px;
+            font-size: 1.2rem;
+        }
+
+        .content-item-text h4 {
+            font-weight: 600;
+            color: var(--primary-green);
+            margin-bottom: 4px;
+        }
+
+        .content-item-text p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .preview-image {
+            background: linear-gradient(45deg, var(--bg-light), var(--white));
+            border-radius: var(--border-radius);
+            padding: 40px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .recipe-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .recipe-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        .recipe-card:hover {
+            transform: scale(1.05);
+        }
+
+        .recipe-card img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+        }
+
+        .recipe-info {
+            padding: 16px;
+        }
+
+        .recipe-info h5 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-green);
+            margin-bottom: 8px;
+        }
+
+        .recipe-time {
+            font-size: 0.8rem;
+            color: var(--accent-orange);
+            font-weight: 500;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: var(--bg-light);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .testimonial {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 30px;
+            font-size: 4rem;
+            color: var(--accent-orange);
+            font-family: serif;
+        }
+
+        .stars {
+            color: #FFD700;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 24px;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--secondary-green), var(--primary-green));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .author-info h5 {
+            font-weight: 600;
+            color: var(--primary-green);
+            margin-bottom: 4px;
+        }
+
+        .author-info p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* Urgency Section */
+        .urgency {
+            background: linear-gradient(45deg, var(--accent-orange), var(--light-orange));
+            color: var(--white);
+            text-align: center;
+        }
+
+        .urgency h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .time-unit {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            min-width: 100px;
+        }
+
+        .time-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            display: block;
+        }
+
+        .time-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Guarantee Section */
+        .guarantee {
+            background: var(--white);
+            text-align: center;
+        }
+
+        .guarantee-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .guarantee-badge {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, var(--secondary-green), var(--primary-green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            color: var(--white);
+            font-size: 2rem;
+        }
+
+        .guarantee h3 {
+            font-size: 1.8rem;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+        }
+
+        .guarantee p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* FAQ Section */
+        .faq {
+            background: var(--bg-light);
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 20px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .faq-question {
+            padding: 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary-green);
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: var(--bg-light);
+        }
+
+        .faq-answer {
+            padding: 0 24px 24px;
+            color: var(--text-gray);
+            display: none;
+            line-height: 1.6;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .final-cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .final-cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .final-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .cta-features {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .cta-feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+        }
+
+        .cta-feature i {
+            color: var(--accent-orange);
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .footer p {
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--accent-orange);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content,
+            .content-preview {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-stats,
+            .countdown-timer,
+            .cta-features {
+                justify-content: center;
+                text-align: center;
+            }
+
+            .ebook-mockup {
+                transform: none;
+            }
+
+            .ebook-cover {
+                width: 280px;
+                height: 400px;
+            }
+
+            .recipe-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .fixed-cta {
+                bottom: 10px;
+                right: 10px;
+                left: 10px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideInLeft 0.8s ease forwards;
+        }
+
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            animation: slideInRight 0.8s ease forwards;
+        }
+
+        @keyframes slideInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text fade-in">
+                    <h1>Pouco tempo para cozinhar? Conheça as 5 receitas que vão mudar sua alimentação em 15 minutos ou menos</h1>
+                    <p class="subtitle">Descubra receitas rápidas, saborosas e nutritivas prontas em menos de 15 minutos.</p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Receitas</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">15min</span>
+                            <span class="stat-label">Tempo</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Saudável</span>
+                        </div>
+                    </div>
+
+                    <div class="price-section">
+                        <div class="price-old">De R$ 49,90</div>
+                        <div class="price-current">R$ 14,90</div>
+                        <div class="price-installments">ou 3x de R$ 4,97</div>
+                    </div>
+
+                    <a href="https://pay.kiwify.com.br/g3NR844" class="cta-button">
+                        <i class="fas fa-shopping-cart"></i>
+                        ADQUIRIR AGORA
+                    </a>
+                </div>
+
+                <div class="hero-visual slide-in-right">
+                    <div class="ebook-mockup">
+                        <div class="ebook-cover">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f9c04dc4-db05-4278-a680-1506744e48bd.png" alt="Capa do ebook Receitas Saudáveis para Quem Não Tem Tempo mostrando um prato saudável com frango grelhado, salada colorida e quinoa, com relógio e vegetais ao fundo em tons de verde e laranja" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits section">
+        <div class="container">
+            <h2 class="section-title fade-in">Por que este ebook vai transformar sua alimentação?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Receitas Práticas para o Dia a Dia</h3>
+                    <p>5 receitas que você prepara em menos de 15 minutos, perfeitas para sua rotina corrida. Cada receita foi testada e aprovada.</p>
+                </div>
+
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shopping-basket"></i>
+                    </div>
+                    <h3>Ingredientes Fáceis de Encontrar</h3>
+                    <p>Todos os ingredientes estão disponíveis no seu supermercado local. Nada de produtos exóticos ou caros! Lista de compras incluída para facilitar sua vida.</p>
+                </div>
+
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Alimentação Saudável Sem Complicação</h3>
+                    <p>Coma bem sem gastar horas na cozinha. Nutrição balanceada para quem tem uma vida agitada, com informações nutricionais completas.</p>
+                </div>
+
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-piggy-bank"></i>
+                    </div>
+                    <h3>Economize Tempo e Dinheiro</h3>
+                    <p>Pare de gastar com delivery e comida pronta. Invista na sua saúde gastando menos! Economia média de R$ 300 por mês.</p>
+                </div>
+
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Acesso Imediato</h3>
+                    <p>Receba o ebook instantaneamente no seu email. Comece a cozinhar hoje mesmo! Formato PDF otimizado para celular e tablet.</p>
+                </div>
+
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Para Toda a Família</h3>
+                    <p>Receitas que agradam adultos e crianças. Opções vegetarianas, sem glúten e para diferentes restrições alimentares incluídas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's Inside Section -->
+    <section class="whats-inside section">
+        <div class="container">
+            <h2 class="section-title fade-in">O que você vai encontrar no ebook?</h2>
+            <div class="content-preview">
+                <div class="content-list slide-in-left">
+                    <div class="content-item">
+                        <i class="fas fa-utensils"></i>
+                        <div class="content-item-text">
+                            <h4>5+ Receitas Completas</h4>
+                            <p>Pronto em Poucos Minutos — todas as receitas levam 15 minutos ou menos.</p>
+                        </div>
+                    </div>
+                    <div class="content-item">
+                        <i class="fas fa-list-check"></i>
+                        <div class="content-item-text">
+                            <h4>Exclusividade</h4>
+                            <p>Receitas Exclusivas — não publicadas em redes sociais ou blogs</p>
+                        </div>
+                    </div>
+                    <div class="content-item">
+                        <i class="fas fa-calculator"></i>
+                        <div class="content-item-text">
+                            <h4>Informações Nutricionais</h4>
+                            <p>Calorias, proteínas, carboidratos e fibras</p>
+                        </div>
+                    </div>
+                    <div class="content-item">
+                        <i class="fas fa-leaf"></i>
+                        <div class="content-item-text">
+                            <h4>Opções de refeições diferentes</h4>
+                            <p>Planejamento Semanal — um mini cardápio sugerido com as receitas do ebook</p>
+                        </div>
+                    </div>
+                    <div class="content-item">
+                        <i class="fas fa-seedling"></i>
+                        <div class="content-item-text">
+                            <h4>Dicas de Meal Prep</h4>
+                            <p>Como preparar suas refeições antecipadamente</p>
+                        </div>
+                    </div>
+                    <div class="content-item">
+                        <i class="fas fa-award"></i>
+                        <div class="content-item-text">
+                            <h4>Bônus Exclusivos</h4>
+                            <p>Foco no Sabor e na Saúde — combinação perfeita de nutrição e prazer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="preview-image slide-in-right">
+                    <div class="recipe-cards">
+                        <div class="recipe-card">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a42ba1ec-3479-4126-81da-b8a57e24d310.png" alt="Salada colorida com ingredientes frescos, tomates cherry, pepino, folhas verdes e molho caseiro em bowl branco" />
+                            <div class="recipe-info">
+                                <h5>Salada Power</h5>
+                                <div class="recipe-time">⏰ 10 min</div>
+                            </div>
+                        </div>
+                        <div class="recipe-card">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e0e2d098-0507-4a85-a41e-f8f491b22ffd.png" alt="Omelete nutritiva com vegetais coloridos, queijo derretido e ervas frescas em frigideira antiaderente" />
+                            <div class="recipe-info">
+                                <h5>Omelete Fit</h5>
+                                <div class="recipe-time">⏰ 8 min</div>
+                            </div>
+                        </div>
+                        <div class="recipe-card">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/116227c5-9110-4e64-8459-b228bc9912e5.png" alt="Smoothie verde nutritivo com frutas tropicais, folhas verdes e sementes em copo transparente alto" />
+                            <div class="recipe-info">
+                                <h5>Smoothie Verde</h5>
+                                <div class="recipe-time">⏰ 5 min</div>
+                            </div>
+                        </div>
+                        <div class="recipe-card">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a4c5a49d-9f84-4746-8328-f16b1e675940.png" alt="Wrap saudável com frango grelhado, vegetais frescos e molho natural enrolado em tortilla integral" />
+                            <div class="recipe-info">
+                                <h5>Wrap Integral</h5>
+                                <div class="recipe-time">⏰ 15 min</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials section">
+        <div class="container">
+            <h2 class="section-title fade-in">O que nossos leitores estão dizendo</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial fade-in">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Finalmente encontrei receitas que cabem na minha rotina! Em 3 semanas já perdi 4kg comendo gostoso e sem passar fome. As receitas são realmente práticas e deliciosas."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <h5>Maria Silva</h5>
+                            <p>Executiva, 34 anos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial fade-in">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Como mãe de 2 filhos e trabalhando em tempo integral, este ebook salvou minha vida! Agora consigo preparar refeições saudáveis em poucos minutos. Meus filhos adoram!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div class="author-info">
+                            <h5>Ana Costa</h5>
+                            <p>Professora, 29 anos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial fade-in">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Estava gastando uma fortuna com delivery. Com essas receitas, economizo mais de R$ 400 por mês e ainda como muito melhor. Recomendo para todo mundo!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">C</div>
+                        <div class="author-info">
+                            <h5>Carlos Mendes</h5>
+                            <p>Advogado, 41 anos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial fade-in">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Nunca pensei que conseguiria cozinhar de forma saudável com minha agenda corrida. As receitas são super fáceis e os ingredientes sempre tenho em casa!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">J</div>
+                        <div class="author-info">
+                            <h5>João Ferreira</h5>
+                            <p>Empresário, 38 anos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial fade-in">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Estava com colesterol alto e precisava mudar minha alimentação urgentemente. Em 2 meses seguindo as receitas, meus exames melhoraram muito!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">L</div>
+                        <div class="author-info">
+                            <h5>Luciana Oliveira</h5>
+                            <p>Contadora, 45 anos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial fade-in">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"O ebook não só me ensinou a cozinhar rápido, mas também me educou sobre nutrição. Agora toda minha família come melhor e mais saudável!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">R</div>
+                        <div class="author-info">
+                            <h5>Roberto Santos</h5>
+                            <p>Engenheiro, 36 anos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Urgency Section -->
+    <section class="urgency section">
+        <div class="container">
+            <div class="fade-in">
+                <h2>🔥 Oferta Especial - Tempo Limitado!</h2>
+                <p>Aproveite esta oportunidade única e transforme sua alimentação hoje mesmo!</p>
+                
+                <div class="countdown-timer">
+                    <div class="time-unit">
+                        <span class="time-number" id="hours">23</span>
+                        <span class="time-label">Horas</span>
+                    </div>
+                    <div class="time-unit">
+                        <span class="time-number" id="minutes">59</span>
+                        <span class="time-label">Minutos</span>
+                    </div>
+                    <div class="time-unit">
+                        <span class="time-number" id="seconds">59</span>
+                        <span class="time-label">Segundos</span>
+                    </div>
+                </div>
+
+                <a href="https://pay.kiwify.com.br/g3NR844" class="cta-button">
+                    <i class="fas fa-fire"></i>
+                    GARANTIR MINHA CÓPIA AGORA
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Section -->
+    <section class="guarantee section">
+        <div class="container">
+            <div class="guarantee-content fade-in">
+                <div class="guarantee-badge">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Garantia de qualidade</h3>
+                <p>Cada receita foi cuidadosamente selecionada e testada para garantir praticidade e sabor. Nosso compromisso é entregar conteúdo útil e que facilite seu dia a dia na cozinha. </p>
+                
+                <div style="margin-top: 40px;">
+                    <a href="https://pay.kiwify.com.br/g3NR844" class="cta-button">
+                        <i class="fas fa-lock"></i>
+                        COMPRA SEGURA E GARANTIDA
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq section">
+        <div class="container">
+            <h2 class="section-title fade-in">Perguntas Frequentes</h2>
+            <div class="faq-list">
+                <div class="faq-item fade-in">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Como recebo o ebook após a compra?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Após a confirmação do pagamento, você receberá o ebook instantaneamente no seu e-mail. O arquivo será enviado em formato PDF, otimizado para leitura em qualquer dispositivo.
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>As receitas são adequadas para pessoas com restrições alimentares?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Sim! O ebook inclui receitas vegetarianas, veganas, sem glúten e para diabéticos. Cada receita está claramente identificada com suas características nutricionais.
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Preciso de equipamentos especiais para fazer as receitas?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Não! Todas as receitas foram desenvolvidas para serem feitas com utensílios básicos que você já tem em casa: fogão, forno básico, frigideira e panelas comuns.
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Os ingredientes são caros ou difíceis de encontrar?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Todos os ingredientes são facilmente encontrados em qualquer supermercado e são econômicos. Priorizamos ingredientes acessíveis e versateis que você pode usar em várias receitas.
+                    </div>
+                </div>
+
+            
+
+                <div class="faq-item fade-in">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Posso imprimir o ebook?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Sim! O arquivo PDF permite impressão completa ou parcial. Você pode imprimir suas receitas favoritas e deixar na cozinha para consulta rápida.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta section">
+        <div class="container">
+            <div class="final-cta-content fade-in">
+                <h2>Transforme sua alimentação hoje mesmo!</h2>
+                <p>Não perca mais tempo com comida industrializada e delivery caro. Comece hoje a comer saudável sem complicação!</p>
+                
+                <div class="cta-features">
+                    <div class="cta-feature">
+                        <i class="fas fa-bolt"></i>
+                        <span>Acesso Imediato</span>
+                    </div>
+                    <div class="cta-feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Garantia de Entrega</span>
+                    </div>
+                    <div class="cta-feature">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Formato Digital</span>
+                    </div>
+                </div>
+
+                <div style="margin: 40px 0;">
+                    <div class="price-current" style="margin-bottom: 20px;">Apenas R$ 14,90</div>
+                    <div style="opacity: 0.9; margin-bottom: 30px;">ou 3x de R$ 4,97 sem juros</div>
+                </div>
+
+                <a href="https://pay.kiwify.com.br/g3NR844" class="cta-button" style="font-size: 1.3rem; padding: 22px 50px;">
+                    <i class="fas fa-crown"></i>
+                    QUERO COMER SAUDÁVEL AGORA
+                </a>
+
+                <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">
+                    ✅ Pagamento 100% Seguro | ✅ Entrega Instantânea | ✅ Suporte Completo
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 Receitas Saudáveis para Quem Não Tem Tempo. Todos os direitos reservados.</p>
+            <div class="footer-links">
+                <a href="#privacy">Política de Privacidade</a>
+                <a href="#terms">Termos de Uso</a>
+                <a href="#contact">Contato</a>
+            </div>
+            <p style="font-size: 0.9rem; opacity: 0.7;">Este produto não substitui o acompanhamento médico ou nutricional profissional.</p>
+        </div>
+    </footer>
+
+    <!-- Fixed CTA Button -->
+    <a href="https://pay.kiwify.com.br/g3NR844" class="fixed-cta cta-button">
+        <i class="fas fa-shopping-cart"></i>
+        COMPRAR AGORA
+    </a>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            tomorrow.setHours(0, 0, 0, 0);
+            const distance = tomorrow.getTime() - now;
+
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // FAQ Toggle
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('i');
+            
+            if (answer.classList.contains('active')) {
+                answer.classList.remove('active');
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                // Close all other FAQs
+                document.querySelectorAll('.faq-answer.active').forEach(item => {
+                    item.classList.remove('active');
+                });
+                document.querySelectorAll('.faq-question i').forEach(item => {
+                    item.style.transform = 'rotate(0deg)';
+                });
+                
+                // Open clicked FAQ
+                answer.classList.add('active');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = '0s';
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+
+        // Add loading class removal
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+
+        // Scroll to top functionality (optional)
+        let scrollTopBtn = document.createElement('button');
+        scrollTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+        scrollTopBtn.className = 'scroll-top-btn';
+        scrollTopBtn.style.cssText = `
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-green);
+            color: white;
+            border: none;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: var(--shadow);
+        `;
+
+        document.body.appendChild(scrollTopBtn);
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTopBtn.style.opacity = '1';
+                scrollTopBtn.style.transform = 'translateY(0)';
+            } else {
+                scrollTopBtn.style.opacity = '0';
+                scrollTopBtn.style.transform = 'translateY(20px)';
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
+
